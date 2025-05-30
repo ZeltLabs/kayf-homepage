@@ -24,7 +24,7 @@ export default function TracerFeaturesSection() {
                 <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
                     <h2 className="text-balance text-4xl font-semibold lg:text-6xl">Enterprise Search. Reimagined.</h2>
                     <p className="text-muted-foreground">
-                        Kayf uses <Link className='font-bold' href='https://github.com/ZeltLabs/tracer'>Tracer</Link> to provide fast and cost-effective enterprise search. Seamlessly integrated into the platform, Tracer powers full-text queries, semantic understanding, and natural language Q&A across all your content.
+                        Kayf uses <Link className='font-bold' href='https://github.com/ZeltLabs/tracer' target="_blank">Tracer</Link> to provide fast and cost-effective enterprise search. Seamlessly integrated into the platform, Tracer powers full-text queries, semantic understanding, and natural language Q&A across all your content.
                     </p>
                 </div>
 

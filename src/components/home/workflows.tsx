@@ -24,7 +24,7 @@ export default function WorkflowsFeaturesSection() {
                         <div className="md:pr-6 lg:pr-0">
                             <h2 className="text-4xl font-semibold lg:text-5xl">Workflow automation done right</h2>
                             <p className="mt-6 text-muted-foreground">
-                                Powered by <Link href='https://github.com/ZeltLabs/zynk' className='font-bold'>Zynk</Link>, Kayf runs workflows in a high-performance execution environment that scales with your team. Define logic once and let Kayf handle the timing, execution, and integration - so things run exactly when and how they should.
+                                Powered by <Link href='https://github.com/ZeltLabs/zynk' target="_blank" className='font-bold'>Zynk</Link>, Kayf runs workflows in a high-performance execution environment that scales with your team. Define logic once and let Kayf handle the timing, execution, and integration - so things run exactly when and how they should.
                             </p>
                         </div>
                         <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">

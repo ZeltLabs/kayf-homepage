@@ -29,7 +29,7 @@ export default function OpenSourceSection() {
                         Built by the community for the community
                     </h2>
                     <p className="text-muted-foreground">
-                        Kayf is a <Link href={'https://zeltlabs.com'} className="font-semibold text-accent-foreground">ZeltLabs</Link> project, proudly released under the <Link href={'https://github.com/ZeltLabs/kayf/blob/main/LICENSE'} className="font-semibold">MIT license</Link>. This platform is built for the community and will always remain free.
+                        Kayf is a <Link href='https://zeltlabs.com' target="_blank" className="font-semibold text-accent-foreground">ZeltLabs</Link> project, proudly released under the <Link href={'https://github.com/ZeltLabs/kayf/blob/main/LICENSE'} className="font-semibold">MIT license</Link>. This platform is built for the community and will always remain free.
                     </p>
                     <p className="text-muted-foreground">
                         Our mission is to simplify data management and make powerful, intelligent tools accessible to everyone. As an open-source solution, Kayf encourages anyone to use, modify, and improve the software - together.
