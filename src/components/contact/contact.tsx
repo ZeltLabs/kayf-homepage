@@ -16,11 +16,11 @@ export default function ContactSection() {
                     <div className="grid divide-y border-b md:grid-cols-2 md:gap-4 md:divide-x md:divide-y-0">
                         <div className="flex flex-col justify-between space-y-8 p-6 sm:p-12">
                             <div>
-                                <h2 className="mb-3 text-lg font-semibold">Business</h2>
+                                <h2 className="mb-3 text-lg font-semibold">Sales</h2>
                                 <Link
-                                    href="mailto:business@kayf.app"
+                                    href="mailto:sales@kayf.app"
                                     className="text-lg text-blue-600 hover:underline dark:text-blue-400">
-                                    business@kayf.app
+                                    sales@kayf.app
                                 </Link>
                             </div>
                         </div>
