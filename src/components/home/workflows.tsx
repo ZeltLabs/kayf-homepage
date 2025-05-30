@@ -1,3 +1,4 @@
+"use client"
 
 import { Activity, Clock, DraftingCompass, Plug, Zap } from 'lucide-react'
 import { OrbitingCircles } from '@/components/ui/magicui/orbiting-circles'
@@ -14,8 +15,11 @@ import {
     SiTelegram,
 } from '@icons-pack/react-simple-icons'
 import Link from 'next/link'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 export default function WorkflowsFeaturesSection() {
+    const isMobile = useIsMobile();
+
     return (
         <section className="py-16 md:py-32">
             <div className="mx-auto max-w-6xl px-6">
@@ -51,14 +55,14 @@ export default function WorkflowsFeaturesSection() {
                         </ul>
                     </div>
                     <div className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden lg:col-span-3">
-                        <OrbitingCircles iconSize={40}>
+                        <OrbitingCircles iconSize={40} radius={isMobile ? 130 : 160}>
                             <SiNotion />
                             <SiConfluence />
                             <SiSlack />
                             <SiGooglecalendar />
                             <SiOpenai />
                         </OrbitingCircles>
-                        <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
+                        <OrbitingCircles iconSize={30} radius={isMobile ? 70 : 100} reverse speed={2}>
                             <SiGithub />
                             <SiTelegram />
                             <SiGmail />
