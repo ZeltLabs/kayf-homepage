@@ -1,32 +1,20 @@
 'use client'
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { ChartBarIncreasingIcon, Database, Fingerprint, IdCard } from 'lucide-react'
+import { Brain, FileText, LayoutGrid, Search } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { BorderBeam } from '@/components/ui/magicui/border-beam'
+import Link from 'next/link'
 
 export default function TracerFeaturesSection() {
     type ImageKey = 'item-1' | 'item-2' | 'item-3' | 'item-4'
     const [activeItem, setActiveItem] = useState<ImageKey>('item-1')
 
-    const images = {
-        'item-1': {
-            image: '/charts.png',
-            alt: 'Database visualization',
-        },
-        'item-2': {
-            image: '/music.png',
-            alt: 'Security authentication',
-        },
-        'item-3': {
-            image: '/mail2.png',
-            alt: 'Identity management',
-        },
-        'item-4': {
-            image: '/payments.png',
-            alt: 'Analytics dashboard',
-        },
+    const displayImage = {
+        image: '/tracer-demo.png',
+        alt: 'Kayf Tracer integration demo',
     }
 
     return (
@@ -34,8 +22,10 @@ export default function TracerFeaturesSection() {
             <div className="bg-linear-to-b absolute inset-0 -z-10 sm:inset-6 sm:rounded-b-3xl dark:block dark:to-[color-mix(in_oklab,var(--color-zinc-900)_75%,var(--color-background))]"></div>
             <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 lg:space-y-20 dark:[--color-border:color-mix(in_oklab,var(--color-white)_10%,transparent)]">
                 <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-6xl">The foundation for AI</h2>
-                    <p>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</p>
+                    <h2 className="text-balance text-4xl font-semibold lg:text-6xl">Enterprise Search. Reimagined.</h2>
+                    <p className="text-muted-foreground">
+                        Kayf uses <Link className='font-bold' href='https://github.com/ZeltLabs/tracer'>Tracer</Link> to provide fast and cost-effective enterprise search. Seamlessly integrated into the platform, Tracer powers full-text queries, semantic understanding, and natural language Q&A across all your content.
+                    </p>
                 </div>
 
                 <div className="grid gap-12 sm:px-12 md:grid-cols-2 lg:gap-20 lg:px-0">
@@ -47,38 +37,49 @@ export default function TracerFeaturesSection() {
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
-                                    <Database className="size-4" />
-                                    Database Visualization
+                                    <Search className="size-4" />
+                                    Powerful search engine
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>
+                                Tracer delivers relevant results across structured and unstructured content. Built with performance in mind, it handles everything from plain text to nested document formats.
+                            </AccordionContent>
                         </AccordionItem>
+
                         <AccordionItem value="item-2">
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
-                                    <Fingerprint className="size-4" />
-                                    Advanced Authentication
+                                    <FileText className="size-4" />
+                                    Deep document understanding
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>
+                                Go beyond titles and filenames - Tracer extracts and analyzes the full context of your documents for more accurate results.
+                            </AccordionContent>
                         </AccordionItem>
+
                         <AccordionItem value="item-3">
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
-                                    <IdCard className="size-4" />
-                                    Identity Management
+                                    <Brain className="size-4" />
+                                    LLM-ready questions
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>
+                                Ask natural language questions across your indexed data. Tracer integrates with leading LLMs for seamless, meaningful answers.
+                            </AccordionContent>
                         </AccordionItem>
+
                         <AccordionItem value="item-4">
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
-                                    <ChartBarIncreasingIcon className="size-4" />
-                                    Analytics Dashboard
+                                    <LayoutGrid className="size-4" />
+                                    Scalable & efficient
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>
+                                Designed for scale, Tracer performs reliably even across large datasets-without requiring heavyweight infrastructure.
+                            </AccordionContent>
                         </AccordionItem>
                     </Accordion>
 
@@ -87,16 +88,15 @@ export default function TracerFeaturesSection() {
                         <div className="aspect-76/59 bg-background relative w-[calc(3/4*100%+3rem)] rounded-2xl">
                             <AnimatePresence mode="wait">
                                 <motion.div
-                                    key={`${activeItem}-id`}
                                     initial={{ opacity: 0, y: 6, scale: 0.98 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 6, scale: 0.98 }}
                                     transition={{ duration: 0.2 }}
                                     className="size-full overflow-hidden rounded-2xl border bg-zinc-900 shadow-md">
                                     <Image
-                                        src={images[activeItem].image}
+                                        src={displayImage.image}
                                         className="size-full object-cover object-left-top dark:mix-blend-lighten"
-                                        alt={images[activeItem].alt}
+                                        alt={displayImage.alt}
                                         width={1207}
                                         height={929}
                                     />
@@ -114,3 +114,4 @@ export default function TracerFeaturesSection() {
         </section>
     )
 }
+
