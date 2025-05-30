@@ -37,7 +37,7 @@ export default function OpenSourceSection() {
                 </div>
                 {/* Filled Animated Heart */}
                 <div className="flex items-center justify-center">
-                    <FilledHeartIcon className="h-24 w-24 animate-pulse text-red-600 dark:text-red-400 sm:h-70 sm:w-70" />
+                    <FilledHeartIcon className="h-24 w-24 animate-pulse text-red-400 sm:h-70 sm:w-70" />
                 </div>
             </div>
         </section>
