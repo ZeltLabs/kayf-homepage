@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { CalendarCheck, ChevronRight, Target } from 'lucide-react'
+import { ChevronRight, FileText, PenLine, Sparkles } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -9,7 +9,10 @@ export default function EditorFeaturesSection() {
             <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="grid gap-12 md:grid-cols-5">
                     <div className="md:col-span-2">
-                        <h2 className="text-foreground text-balance text-4xl font-semibold">The AI Coding Assistant that helps you write code faster</h2>
+                        <h2 className="text-foreground text-balance text-4xl font-semibold">The collaborative editor built for speed and clarity</h2>
+                        <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
+                            Powered by Yjs, Kayf enables app-wide, real-time collaboration across all content types. Whether you&apos;re editing a doc, writing code, or working on a shared canvas - everything stays perfectly in sync. Our model supports persistent snapshots for every file, giving you full version history without friction.
+                        </p>
                         <Button
                             className="mt-8 pr-2"
                             variant="outline"
@@ -24,18 +27,26 @@ export default function EditorFeaturesSection() {
                     <div className="space-y-6 md:col-span-3 md:space-y-10">
                         <div>
                             <div className="flex items-center gap-2">
-                                <Target className="size-5" />
-                                <h3 className="text-foreground text-lg font-semibold">Code Generation</h3>
+                                <FileText className="size-5" />
+                                <h3 className="text-foreground text-lg font-semibold">Work on documents or code</h3>
                             </div>
-                            <p className="text-muted-foreground mt-3 text-balance">Just describe the code you want to write and we'll generate it for you. From boilerplate code to complex business logic, we've got you covered.</p>
+                            <p className="text-muted-foreground mt-3 text-balance">Write in a rich-text editor powered by Lexical or dive into code with full syntax highlighting via CodeMirror. Everything stays in sync, no matter the format.</p>
                         </div>
 
                         <div>
                             <div className="flex items-center gap-2">
-                                <CalendarCheck className="size-5" />
-                                <h3 className="text-foreground text-lg font-semibold">Code Review</h3>
+                                <PenLine className="size-5" />
+                                <h3 className="text-foreground text-lg font-semibold">Shared Canvas</h3>
                             </div>
-                            <p className="text-muted-foreground mt-3 text-balance">Get instant feedback on your code. Our AI will review your code and suggest improvements in terms of best practices and performance.</p>
+                            <p className="text-muted-foreground mt-3 text-balance">Sketch out ideas, organize structures, or plan workflows visually. The shared canvas gives teams a space to think together in real time.</p>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center gap-2">
+                                <Sparkles className="size-5" />
+                                <h3 className="text-foreground text-lg font-semibold">AI-powered Collaboration</h3>
+                            </div>
+                            <p className="text-muted-foreground mt-3 text-balance">Use natural language to direct your AI assistant. Summarize, refactor, or generate content directly in your workspace.</p>
                         </div>
                     </div>
                 </div>
@@ -44,9 +55,9 @@ export default function EditorFeaturesSection() {
                     <div className="bg-background rounded-(--radius) relative mx-auto overflow-hidden border border-transparent shadow-lg shadow-black/10 ring-1 ring-black/10">
                         <Image
                             src="/mist/tailark-2.png"
-                            alt="app screen"
-                            width="2880"
-                            height="1842"
+                            alt="Kayf editor screen"
+                            width={2880}
+                            height={1842}
                         />
                     </div>
                 </div>
@@ -54,3 +65,4 @@ export default function EditorFeaturesSection() {
         </section>
     )
 }
+
