@@ -1,9 +1,14 @@
+"use client"
+
 import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import pavelAvatar from "@/../public/about/Pavel.jpg"
+import tgmLogo from "@/../public/blog/tgm.png"
+import dagImg from "@/../public/blog/dag.png"
+import { useState } from "react"
+import { Input } from "@/components/ui/input"
 
 interface BlogEntry {
     title: string
@@ -13,38 +18,90 @@ interface BlogEntry {
     date: Date
 }
 
+
 const blogEntries: BlogEntry[] = [
     {
-        title: "The Future of Web Development",
-        description:
-            "Exploring the latest trends in frontend and backend technologies, including AI-powered coding tools and modern frameworks.",
-        image: pavelAvatar,
-        link: "/post/1",
-        date: new Date("2024-12-03"),
+        title: "Viewing Process Automation as a Simple Graph Problem",
+        description: "Demonstrates how automation problems can be simplified and solved by modeling them as Directed Acyclic Graphs, allowing clear validation and execution order analysis.",
+        image: dagImg,
+        link: "/blog/tutorial-dag-graphs",
+        date: new Date("2025-06-02"),
+    }, {
+        title: "Report June 2025",
+        description: "Final project progress report for the diploma thesis, including details about the 'Jugend Innovativ' finals.",
+        image: tgmLogo,
+        link: "/blog/report-202506",
+        date: new Date("2025-06-02"),
     },
     {
-        title: "Mastering React Performance Optimization",
-        description:
-            "A deep dive into memoization, lazy loading, and efficient state management techniques for faster React applications.",
-        image: pavelAvatar,
-        link: "/post/2",
+        title: "Report May 2025",
+        description: "Report project progress for diploma thesis for May",
+        image: tgmLogo,
+        link: "/blog/report-202505",
+        date: new Date("2025-06-02"),
+    },
+    {
+        title: "Report April 2025",
+        description: "Report project progress for diploma thesis for April",
+        image: tgmLogo,
+        link: "/blog/report-202504",
+        date: new Date("2025-05-04"),
+    },
+    {
+        title: "Report March 2025",
+        description: "Report project progress for diploma thesis for March",
+        image: tgmLogo,
+        link: "/blog/report-202503",
+        date: new Date("2025-04-08"),
+    },
+    {
+        title: "Report February 2025",
+        description: "Report project progress for diploma thesis for February",
+        image: tgmLogo,
+        link: "/blog/report-202502",
+        date: new Date("2025-03-09"),
+    },
+    {
+        title: "Report January 2025",
+        description: "Report project progress for diploma thesis for January",
+        image: tgmLogo,
+        link: "/blog/report-202501",
+        date: new Date("2025-02-06"),
+    },
+    {
+        title: "Report December 2024",
+        description: "Report project progress for diploma thesis for December",
+        image: tgmLogo,
+        link: "/blog/report-202412",
+        date: new Date("2025-01-05"),
+    },
+    {
+        title: "Report November 2024",
+        description: "Report project progress for diploma thesis for November",
+        image: tgmLogo,
+        link: "/blog/report-202411",
         date: new Date("2024-12-05"),
     },
     {
-        title: "UI/UX Design Principles for 2025",
-        description:
-            "Key strategies for creating intuitive, beautiful interfaces that delight users and drive engagement in the coming year.",
-        image: pavelAvatar,
-        link: "/post/3",
-        date: new Date("2024-12-10"),
+        title: "Report October 2024",
+        description: "Report project progress for diploma thesis for October",
+        image: tgmLogo,
+        link: "/blog/report-202410",
+        date: new Date("2024-11-03"),
     },
-]
+];
 
 export default function BlogSection() {
+    const [search, setSearch] = useState("")
+
+    const filteredEntries = blogEntries.filter(entry =>
+        entry.title.toLowerCase().includes(search.toLowerCase())
+    )
+
     return (
         <section className="py-32 px-4 sm:px-6 lg:px-20">
             {/* Heading and intro */}
-            <div className="max-w-5xl mx-auto mb-16 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 items-start">
+            <div className="max-w-5xl mx-auto mb-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 items-start">
                 <div>
                     <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
                         Discover Our <br className="sm:hidden" /> Fresh Content
@@ -58,12 +115,22 @@ export default function BlogSection() {
                 </div>
             </div>
 
+            {/* Search bar */}
+            <div className="max-w-5xl mx-auto mb-12">
+                <Input
+                    placeholder="Search blog titles..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="w-full sm:w-1/2"
+                />
+            </div>
+
             {/* Blog entries */}
             <div className="max-w-5xl mx-auto space-y-6">
-                {blogEntries.map((entry, i) => (
+                {filteredEntries.map((entry, i) => (
                     <div key={`blog-entry-${i}`} className="space-y-6">
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <div className="flex-shrink-0 w-full sm:w-48 h-48 rounded-lg overflow-hidden">
+                            <div className="flex-shrink-0 w-full sm:w-48 h-48 rounded-lg border overflow-hidden">
                                 <Image
                                     src={entry.image}
                                     alt={`Image for ${entry.title}`}
@@ -91,11 +158,18 @@ export default function BlogSection() {
                                 </div>
                             </div>
                         </div>
-                        <Separator />
+                        {
+                            i < filteredEntries.length - 1 ?
+                                <Separator />
+                                : null
+                        }
                     </div>
                 ))}
-            </div>
 
+                {filteredEntries.length === 0 && (
+                    <p className="text-center text-muted-foreground">No results found.</p>
+                )}
+            </div>
         </section>
     )
 }

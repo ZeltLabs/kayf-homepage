@@ -1,10 +1,10 @@
 import Image, { StaticImageData } from "next/image"
+
 import ankushAvatar from "@/../public/about/Ankush.jpg"
 import alexAvatar from "@/../public/about/Alex.jpg"
 import pavelAvatar from "@/../public/about/Pavel.jpg"
 import gioiaAvatar from "@/../public/about/Gioia.jpg"
 import tobiasAvatar from "@/../public/about/Tobias.jpg"
-import { Heading1, Paragraph } from "@/components/ui/typography"
 import teampic from "@/../public/about/Team.jpg"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { buttonVariants } from "@/components/ui/button"
@@ -124,12 +124,12 @@ export default function TeamSection() {
         <section className="py-32">
             <div className="mx-auto max-w-6xl px-6">
                 <div className="">
-                    <h1 className="text-center text-4xl font-semibold lg:text-5xl">
+                    <h2 className="text-center text-4xl font-semibold lg:text-5xl">
                         <u>Building</u> tomorrow,<br /> not reacting to it.
-                    </h1>
-                    <Paragraph className="leading-relaxed text-center">
+                    </h2>
+                    <p className="text-muted-foreground text-lg leading-relaxed text-center">
                         Our small but mighty team consists of students from the Technologisches Gewerbemuseum in Vienna, specializing in information technology. We have experts in data science, IT security, and media technologies, giving us a wide range of abilities. This variety allows us to tackle a broad range of challenges and develop innovative solutions. Together, we are committed to creating impactful technology that meets the needs of our users.
-                    </Paragraph>
+                    </p>
                     <div className="relative hidden lg:block w-full py-6">
                         <Image src={teampic} alt="logo" className="w-full rounded-2xl drop-shadow-lg" />
                         <div className="absolute top-20 left-30 w-full h-full">

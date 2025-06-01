@@ -11,9 +11,9 @@ export default function DownloadSection() {
             <div className="mx-auto max-w-5xl px-4 lg:px-0 space-y-24">
                 {/* HEADER */}
                 <div className="text-center max-w-3xl mx-auto">
-                    <h1 className="text-4xl font-bold lg:text-6xl tracking-tight">
+                    <h2 className="text-4xl font-bold lg:text-6xl tracking-tight">
                         Download the Kayf app for a better experience
-                    </h1>
+                    </h2>
                     <p className="mt-4 text-muted-foreground text-lg">
                         Make the switch from web to app - with offline support, native notifications, and seamless performance across nearly every platform. Kayf keeps you in control, wherever you are.
                     </p>
