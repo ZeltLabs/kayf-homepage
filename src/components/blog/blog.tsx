@@ -1,78 +1,101 @@
-import { Button } from "@/components/ui/button"
 import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 import pavelAvatar from "@/../public/about/Pavel.jpg"
 
-import {
-    Card,
-    CardAction,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-
-interface Eintrag {
-    title: string,
-    description: string,
-    image: string | StaticImageData,
-    link: string,
-
+interface BlogEntry {
+    title: string
+    description: string
+    image: string | StaticImageData
+    link: string
+    date: Date
 }
 
-const blogeintrag: Eintrag[] = [
+const blogEntries: BlogEntry[] = [
     {
-        title: "Eintrag 1",
-        description: "Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno",
+        title: "The Future of Web Development",
+        description:
+            "Exploring the latest trends in frontend and backend technologies, including AI-powered coding tools and modern frameworks.",
         image: pavelAvatar,
-        link: "/pricing"
+        link: "/post/1",
+        date: new Date("2024-12-03"),
     },
     {
-        title: "Eintrag 2",
-        description: "Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno",
+        title: "Mastering React Performance Optimization",
+        description:
+            "A deep dive into memoization, lazy loading, and efficient state management techniques for faster React applications.",
         image: pavelAvatar,
-        link: "/pricing"
+        link: "/post/2",
+        date: new Date("2024-12-05"),
     },
     {
-        title: "Eintrag 3",
-        description: "Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno Eintrag Nummer uno",
+        title: "UI/UX Design Principles for 2025",
+        description:
+            "Key strategies for creating intuitive, beautiful interfaces that delight users and drive engagement in the coming year.",
         image: pavelAvatar,
-        link: "/pricing"
+        link: "/post/3",
+        date: new Date("2024-12-10"),
     },
 ]
 
-export default function BlogEintrag() {
+export default function BlogSection() {
     return (
-        <section className="py-32">
-            <div className="mx-auto max-w-2xl space-y-6 text-center">
-                <h1 className="text-center text-4xl font-semibold lg:text-5xl">Insights & Ideas</h1>
-                <p>Welcome to our blog <span className="text-sm text-muted-foreground">— your go-to space for fresh perspectives, practical tips,
-                    and stories that inspire. From behind-the-scenes looks to industry trends, we’re here to
-                    share knowledge and spark conversation.</span></p>
+        <section className="py-32 px-4 sm:px-6 lg:px-20">
+            {/* Heading and intro */}
+            <div className="max-w-5xl mx-auto mb-16 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 items-start">
+                <div>
+                    <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                        Discover Our <br className="sm:hidden" /> Fresh Content
+                    </h2>
+                </div>
+                <div>
+                    <p className="text-muted-foreground text-base leading-relaxed">
+                        We regularly share insights into our product development, technical deep dives, and feature
+                        roadmaps. Stay updated with the ideas shaping our platform’s future.
+                    </p>
+                </div>
             </div>
 
-            <div className="relative top-20 left-20 grid grid-cols-6 w-full gap-10">
-                {blogeintrag.map((e, i) => (
-                    <div key={`eintrag-image-${i}`} className="w-full h-full">
-                        <Card className="w-full h-full flex flex-col text-center">
-                            <CardHeader className="p-0 max-h-40">
-                                <Image src={e.image} alt="Blog entry" className="w-full h-48 object-cover" />
-                            </CardHeader>
-                            <CardTitle>
-                                <p className="text-3xl mt-4">{e.title}</p>
-                            </CardTitle>
-                            <CardDescription className="px-4">{e.description}</CardDescription>
-                            <CardContent className="mt-auto pb-4">
-                                <Link href={e.link}>
-                                    <Button>Read More</Button>
-                                </Link>
-                            </CardContent>
-                        </Card>
+            {/* Blog entries */}
+            <div className="max-w-5xl mx-auto space-y-12">
+                {blogEntries.map((entry, i) => (
+                    <div key={`blog-entry-${i}`} className="space-y-6">
+                        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
+                            <div className="flex-shrink-0 w-full sm:w-48 h-48 rounded-lg overflow-hidden">
+                                <Image
+                                    src={entry.image}
+                                    alt={`Image for ${entry.title}`}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="flex-1 flex flex-col justify-between">
+                                <div className="space-y-2">
+                                    <h3 className="text-xl font-semibold">{entry.title}</h3>
+                                    <p className="text-sm text-muted-foreground">
+                                        {entry.date.toLocaleDateString("en-GB", {
+                                            day: "2-digit",
+                                            month: "short",
+                                            year: "numeric",
+                                        })}
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">{entry.description}</p>
+                                </div>
+                                <div className="mt-4 self-end">
+                                    <Button asChild>
+                                        <Link href={entry.link} className="inline-flex items-center gap-1 text-sm font-medium">
+                                            Read <ArrowRight className="w-4 h-4 ml-1" />
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                        <Separator />
                     </div>
                 ))}
             </div>
-
         </section>
     )
 }
+

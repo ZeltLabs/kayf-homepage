@@ -1,9 +1,9 @@
-import About from "@/components/team/team"
+import TeamSection from "@/components/team/team"
 export default function Team() {
 
-    return(
+    return (
         <main className="flex flex-col grow h-full w-full">
-                    <About />
-                </main>
+            <TeamSection />
+        </main>
     )
 }

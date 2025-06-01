@@ -119,7 +119,7 @@ function TeamMemberDialog({ member }: { member: TeamProps }) {
     )
 }
 
-export default function About() {
+export default function TeamSection() {
     return (
         <section className="py-32">
             <div className="mx-auto max-w-6xl px-6">
