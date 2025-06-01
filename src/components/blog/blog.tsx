@@ -59,10 +59,10 @@ export default function BlogSection() {
             </div>
 
             {/* Blog entries */}
-            <div className="max-w-5xl mx-auto space-y-12">
+            <div className="max-w-5xl mx-auto space-y-6">
                 {blogEntries.map((entry, i) => (
                     <div key={`blog-entry-${i}`} className="space-y-6">
-                        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
+                        <div className="flex flex-col sm:flex-row gap-6">
                             <div className="flex-shrink-0 w-full sm:w-48 h-48 rounded-lg overflow-hidden">
                                 <Image
                                     src={entry.image}
@@ -71,7 +71,7 @@ export default function BlogSection() {
                                 />
                             </div>
                             <div className="flex-1 flex flex-col justify-between">
-                                <div className="space-y-2">
+                                <div className="space-y-3">
                                     <h3 className="text-xl font-semibold">{entry.title}</h3>
                                     <p className="text-sm text-muted-foreground">
                                         {entry.date.toLocaleDateString("en-GB", {
@@ -95,6 +95,7 @@ export default function BlogSection() {
                     </div>
                 ))}
             </div>
+
         </section>
     )
 }
