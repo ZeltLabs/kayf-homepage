@@ -66,7 +66,7 @@ const teamList: TeamProps[] = [
 ];
 
 const TeamCards = ({ members: member }: { members: TeamProps }) => (
-    <Card className="mb-8">
+    <Card className="mt-8">
         <CardHeader className="flex justify-center items-center pb-0">
             <Avatar className="size-[100px]">
                 <Image src={member.imageUrl} alt={member.name} />
