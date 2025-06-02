@@ -44,7 +44,7 @@ export default function Header() {
     return (
         <header className="fixed z-50 w-full pt-4 px-4">
             {/* Floating container */}
-            <div className="bg-secondary/80 backdrop-blur border rounded-xl shadow-md p-1 px-3 flex items-center justify-between">
+            <div className="bg-secondary/80 backdrop-blur border rounded-lg shadow-md p-1 px-3 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" aria-label="Go home" className="flex items-center gap-2">
                     <Logo className="h-6 w-auto" />
@@ -88,7 +88,7 @@ export default function Header() {
                     menuOpen ? "max-h-[500px] opacity-100 mt-2" : "max-h-0 opacity-0"
                 )}
             >
-                <div className="bg-secondary/90 backdrop-blur border rounded-xl shadow-md p-4 space-y-4">
+                <div className="bg-secondary/90 backdrop-blur border rounded-lg shadow-md p-4 space-y-4">
                     {links.slice(1).map((link, index) => (
                         <AnimatedLink
                             key={`mobile-link-${index}`}
