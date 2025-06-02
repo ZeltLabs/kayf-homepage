@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { AnimatedLink } from '../ui/link'
 
 function FilledHeartIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
