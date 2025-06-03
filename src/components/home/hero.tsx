@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import heroDark from '@/../public/home/hero-card-dark.png'
+import heroLight from '@/../public/home/hero-card-light.png'
 
 export default function HeroSection() {
     return (
@@ -61,17 +63,15 @@ export default function HeroSection() {
 
                                 <Image
                                     className="rounded-(--radius) z-1 relative border dark:hidden"
-                                    src="/card.png"
+                                    src={heroLight}
                                     alt="Kayf demo for hero section"
                                     width={2880}
-                                    height={2074}
                                 />
                                 <Image
                                     className="rounded-(--radius) z-1 relative hidden border dark:block"
-                                    src="/dark-card.webp"
+                                    src={heroDark}
                                     alt="Kayf demo for hero section"
                                     width={2880}
-                                    height={2074}
                                 />
                             </div>
                         </div>

@@ -2,6 +2,9 @@ import { Button } from '@/components/ui/button'
 import { ChevronRight, FileText, PenLine, Sparkles } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import editorDark from '@/../public/home/editor-card-dark.png'
+import editorLight from '@/../public/home/editor-card-light.png'
+
 
 export default function EditorFeaturesSection() {
     return (
@@ -52,14 +55,21 @@ export default function EditorFeaturesSection() {
                 </div>
 
                 <div className="relative mt-16 px-12">
-                    <div className="bg-background rounded-(--radius) relative mx-auto overflow-hidden border border-transparent shadow-lg shadow-black/10 ring-1 ring-black/10">
+                    <div className="bg-background rounded-(--radius) relative mx-auto overflow-hidden border border-transparent shadow-lg shadow-black/10 ring-1 ring-black/10 hidden dark:block">
                         <Image
-                            src="/mist/tailark-2.png"
+                            src={editorDark}
                             alt="Kayf editor screen"
                             width={2880}
-                            height={1842}
                         />
                     </div>
+                    <div className="bg-background rounded-(--radius) relative mx-auto overflow-hidden border border-transparent shadow-lg shadow-black/10 ring-1 ring-black/10 block dark:hidden">
+                        <Image
+                            src={editorLight}
+                            alt="Kayf editor screen"
+                            width={2880}
+                        />
+                    </div>
+
                 </div>
             </div>
         </section>

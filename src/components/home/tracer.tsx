@@ -7,15 +7,13 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { BorderBeam } from '@/components/ui/magicui/border-beam'
 import Link from 'next/link'
+import tracerDark from '@/../public/home/tracer-card-dark.png'
+import tracerLight from '@/../public/home/tracer-card-light.png'
+
 
 export default function TracerFeaturesSection() {
     type ImageKey = 'item-1' | 'item-2' | 'item-3' | 'item-4'
     const [activeItem, setActiveItem] = useState<ImageKey>('item-1')
-
-    const displayImage = {
-        image: '/tracer-demo.png',
-        alt: 'Kayf Tracer integration demo',
-    }
 
     return (
         <section className="py-12 md:py-20 lg:py-32">
@@ -94,12 +92,20 @@ export default function TracerFeaturesSection() {
                                     transition={{ duration: 0.2 }}
                                     className="size-full overflow-hidden rounded-2xl border bg-zinc-900 shadow-md">
                                     <Image
-                                        src={displayImage.image}
-                                        className="size-full object-cover object-left-top dark:mix-blend-lighten"
-                                        alt={displayImage.alt}
+                                        src={tracerDark}
+                                        className="size-full object-cover object-left-top dark:mix-blend-lighten hidden dark:block"
+                                        alt={"Tracer image integration"}
                                         width={1207}
                                         height={929}
                                     />
+                                    <Image
+                                        src={tracerLight}
+                                        className="size-full object-cover object-left-top dark:mix-blend-lighten block dark:hidden"
+                                        alt={"Tracer image integration"}
+                                        width={1207}
+                                        height={929}
+                                    />
+
                                 </motion.div>
                             </AnimatePresence>
                         </div>
