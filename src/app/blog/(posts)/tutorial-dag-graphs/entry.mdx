@@ -1,1 +1,41 @@
-# 12
+# What Is a DAG and How Can It Power a Workflow Engine?
+
+Imagine you want to organize a set of tasks where some depend on others to finish first. For example, you can’t bake a cake before you mix the ingredients, and you can’t mix ingredients before gathering them. How do you keep track of what to do next, and in what order?
+
+This is where a **DAG**, or **Directed Acyclic Graph**, comes in handy.
+
+## What’s a DAG?
+
+A DAG is a way to represent tasks and their dependencies as a kind of flowchart:
+
+* **Directed** means the tasks have arrows showing which task comes before another.
+* **Acyclic** means there are no loops — you can’t end up back where you started. So, the order flows forward without getting stuck in circles.
+
+Each task is a **node**, and the arrows show the order things need to happen.
+
+## Using a DAG to Build a Workflow Engine
+
+A **workflow engine** manages and runs these tasks in the right order. It makes sure tasks only start when all their dependencies (the tasks before them) are done.
+
+By representing your workflow as a DAG, you have a clear map of all tasks and what depends on what.
+
+## How Does the Workflow Engine Solve the DAG?
+
+To decide the order to run tasks, the engine needs to **traverse** or walk through the DAG in a smart way. One common method is called **Breadth-First Search (BFS)**.
+
+## What Is Breadth-First Search (BFS)?
+
+Think of BFS like exploring your tasks level by level:
+
+* Start with all tasks that have no dependencies (they can run immediately).
+* Then move to tasks that depend only on those finished tasks.
+* Then tasks depending on those, and so on.
+
+This means the engine runs all independent tasks first, then their dependent tasks, ensuring everything happens in the right sequence.
+
+## How Does BFS Affect Task Execution Order?
+
+By using BFS, tasks are grouped and run in **layers** based on their dependencies:
+
+* Tasks on the same level don’t depend on each other and can often run **in parallel**, speeding up the whole process.
+* Tasks on the next level wait until all tasks from the previous level are finished.
