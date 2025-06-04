@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertTriangle } from "lucide-react";
+import handy from "@/../public/download/handy.png"
+import laptop from "@/../public/download/laptop.png"
+import docker from "@/../public/download/docker.png"
+import Image from "next/image";
 
 export default function DownloadSection() {
     return (
@@ -11,9 +15,9 @@ export default function DownloadSection() {
             <div className="mx-auto max-w-5xl px-4 lg:px-0 space-y-24">
                 {/* HEADER */}
                 <div className="text-center max-w-3xl mx-auto">
-                    <h2 className="text-4xl font-bold lg:text-6xl tracking-tight">
+                    <h1 className="text-4xl font-bold lg:text-6xl tracking-tight">
                         Download the Kayf app for a better experience
-                    </h2>
+                    </h1>
                     <p className="mt-4 text-muted-foreground text-lg">
                         Make the switch from web to app - with offline support, native notifications, and seamless performance across nearly every platform. Kayf keeps you in control, wherever you are.
                     </p>
@@ -36,14 +40,22 @@ export default function DownloadSection() {
                         </div>
                     </div>
                     <div className="flex-1 w-full">
-                        <Skeleton className="h-[300px] w-full rounded-xl" />
+                        <Image
+                            src={laptop}
+                            width={600}
+                            alt="Picture of the author"
+                        />
                     </div>
                 </div>
 
                 {/* SECTION 2: Mobile */}
                 <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
                     <div className="flex-1 w-full">
-                        <Skeleton className="h-[300px] w-full rounded-xl" />
+                        <Image
+                            src={handy}
+                            width={500}
+                            alt="Picture of the author"
+                        />
                     </div>
                     <div className="flex-1 space-y-4 text-center lg:text-left">
                         <h3 className="text-3xl font-semibold">For Mobile</h3>
@@ -98,7 +110,11 @@ export default function DownloadSection() {
                         </div>
                     </div>
                     <div className="flex-1 w-full">
-                        <Skeleton className="h-[300px] w-full rounded-xl" />
+                        <Image
+                            src={docker}
+                            width={500}
+                            alt="Picture of the author"
+                        />
                     </div>
                 </div>
             </div>
